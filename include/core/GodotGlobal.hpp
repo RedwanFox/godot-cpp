@@ -9,6 +9,7 @@ namespace godot {
 
 extern "C" const godot_gdnative_core_api_struct *api;
 extern "C" const godot_gdnative_ext_nativescript_api_struct *nativescript_api;
+extern "C" const godot_gdnative_ext_nativescript_1_1_api_struct *nativescript_1_1_api;
 
 class Godot {
 
@@ -20,12 +21,14 @@ public:
 	static void gdnative_init(godot_gdnative_init_options *o);
 	static void gdnative_terminate(godot_gdnative_terminate_options *o);
 	static void nativescript_init(void *handle);
+	static void nativescript_terminate(void *handle);
 };
 
 
 
 struct _RegisterState {
 	static void *nativescript_handle;
+	static int language_index;
 };
 
 }
